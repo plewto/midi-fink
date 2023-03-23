@@ -1,0 +1,66 @@
+;;;; machine-drum constants.lisp
+;;;;
+
+(in-package :machine-drum)
+
+(defvar +tab-1+ "    ")
+
+;; Status bytes
+;;
+(defvar +note-off+ #x80)
+(defvar +note-on+ #x90)
+(defvar +poly-pressure+ #xa0)
+(defvar +control-change+ #xb0)
+(defvar +program-change+ #xc0)
+(defvar +channel-pressure+ #xd0)
+(defvar +pitch-bend+ #xe0)
+(defvar +system-exclusive+ #xf0)
+(defvar +end-exclusive+ #xf7)
+(defvar +meta+ #xff)
+;; meta types
+;;
+(defvar +sequence-number+ #x00)
+(defvar +text+ #x01)
+(defvar +copyright+ #x02)
+(defvar +track-name+ #x03)
+(defvar +instrument-name+ #x04)
+(defvar +lyric+ #x05)
+(defvar +marker+ #x06)
+(defvar +cue+ #x07)
+(defvar +channel-prefix+ #x20)
+(defvar +end-of-track+ #x2f)
+(defvar +tempo+ #x51)
+(defvar +smpte+ #x54)
+(defvar +time-signature+ #x58)
+(defvar +key-signature+ #x59)
+(defvar +seq-specific+ #x7f)
+
+(defvar +nomenclature+
+	  (let ((table (make-hash-table :size 25)))
+	    (setf (gethash +note-off+ table)          "OFF   ")
+	    (setf (gethash +note-on+ table)           "ON    ")
+	    (setf (gethash +poly-pressure+ table)     "PLYPRS")
+	    (setf (gethash +control-change+ table)    "CTRl  ")
+	    (setf (gethash +program-change+ table)    "PROGRM")
+	    (setf (gethash +channel-pressure+ table)  "CHNPRS")
+	    (setf (gethash +pitch-bend+ table)        "PBEND ")
+	    (setf (gethash +system-exclusive+ table)  "SYSEX ")
+	    (setf (gethash +end-exclusive+ table)     "EOX   ")
+	    (setf (gethash +meta+ table)              "META  ")
+	    (setf (gethash +sequence-number+ table)   "SEQNUM")
+	    (setf (gethash +text+ table)              "TEXT  ")
+	    (setf (gethash +copyright+ table)         "CPYRHT")
+	    (setf (gethash +track-name+ table)        "TRKNAM")
+	    (setf (gethash +instrument-name+ table)   "INSNAM")
+	    (setf (gethash +lyric+ table)             "LYRIC ")
+	    (setf (gethash +marker+ table)            "MARKER")
+	    (setf (gethash +cue+ table)               "CUE   ")
+	    (setf (gethash +channel-prefix+ table)    "CPREFX")
+	    (setf (gethash +end-of-track+ table)      "EOT   ")
+	    (setf (gethash +tempo+ table)             "TEMPO ")
+	    (setf (gethash +smpte+ table)             "SMPTE ")
+	    (setf (gethash +time-signature+ table)    "TSIG  ")
+	    (setf (gethash +key-signature+ table)     "KYSIG ")
+	    (setf (gethash +seq-specific+ table)      "SEQSPC")
+	    table))
+
