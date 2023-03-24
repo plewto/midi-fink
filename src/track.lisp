@@ -1,7 +1,7 @@
-;;;; machine-drum track.lisp
+;;;; midi-fink track.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defclass track (eventlist)
   ((parent :accessor track-parent

@@ -1,7 +1,7 @@
-;;;; machine-drum meta-smpte.lisp
+;;;; midi-fink meta-smpte.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod meta-smpte-p ((this t)) nil)
 

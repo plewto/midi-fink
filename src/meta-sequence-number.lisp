@@ -1,7 +1,7 @@
-;;;; machine-drum   meta-sequence-number
+;;;; midi-fink   meta-sequence-number
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod meta-sequence-number-p ((this t)) nil)
 

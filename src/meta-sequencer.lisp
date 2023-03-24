@@ -1,8 +1,8 @@
-;;;; machine-drum meta-sequencer.lisp
+;;;; midi-fink meta-sequencer.lisp
 ;;;;
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod meta-sequencer-p ((this t)) nil)
 

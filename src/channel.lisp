@@ -1,11 +1,11 @@
-;;;; machine-drum channel.lisp
+;;;; midi-fink channel.lisp
 ;;;;
 ;;;; MIDI channel messages: note-off  note-on  poly-pressure
 ;;;;                        control-change program-change
 ;;;;                        channel-pressure  pitch-bend
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod messagep ((this t)) nil)
 

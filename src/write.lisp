@@ -1,9 +1,9 @@
-;;;; machine-drum  write.lisp
+;;;; midi-fink  write.lisp
 ;;;;
 ;;;; render & write midifile
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (labels ((render-header (this)
 			(append '(#x4D #x54 #x68 #x64)

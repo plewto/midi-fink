@@ -1,7 +1,7 @@
-;;;; machine-drum meta-channel-prefix.p
+;;;; midi-fink meta-channel-prefix.p
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod meta-channel-prefix-p ((this t)) nil)
 

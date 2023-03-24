@@ -1,8 +1,8 @@
-;;;; machine-drum meta-text.lisp
+;;;; midi-fink meta-text.lisp
 ;;;;
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod meta-text-p ((this t)) nil)
 

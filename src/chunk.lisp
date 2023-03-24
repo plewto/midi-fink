@@ -1,8 +1,8 @@
-;;;; machine-drum chunk
+;;;; midi-fink chunk
 ;;;;
 ;;;; Parse chunks from midifile bytes
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 	
 (defmethod chunks ((this vector))

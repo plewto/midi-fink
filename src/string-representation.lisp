@@ -1,7 +1,7 @@
-;;;; machine-drum string-representation.lisp
+;;;; midi-fink string-representation.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (labels ((channel->str (this)
 		       (let* ((status (car this))
@@ -144,7 +144,7 @@
 			    ((meta-timesig-p mtype)(timesig->str this))
 			    ((meta-sequencer-p mtype)(sequencer->str this))
 			    ((meta-end-of-track-p mtype)(eot->string this))
-			    (t (midi-error "MACHINE-DRUM::->STRING dispatch function"
+			    (t (midi-error "MIDI-FINK::->STRING dispatch function"
 					   (list (sformat "Encountered an unknwon meta type: ~A" mtype)
 						 (sformat "MIDI message was ~A" this)))))))
 		  (t (default-list-handler this))))) )

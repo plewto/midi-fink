@@ -1,4 +1,4 @@
-(defsystem "machine-drum"
+(defsystem "midi-fink"
   :version "0.1.0"
   :author "Steven Jones"
   :license "GPL"
@@ -34,14 +34,14 @@
 			 (:file "midifile")
 			 (:file "write")
 			 (:file "read"))))
-  :description "Machine-drum is a Lisp library for creating, reading and writing midifiles.
+  :description "midi-fink is a Lisp library for creating, reading and writing midifiles.
 It is intended as the midifile support for CYCO4, but may be used as a stand-alone library."
-  :in-order-to ((test-op (test-op "machine-drum/tests"))))
+  :in-order-to ((test-op (test-op "midi-fink/tests"))))
 
-(defsystem "machine-drum/tests"
+(defsystem "midi-fink/tests"
   :author ""
   :license ""
-  :depends-on ("machine-drum"
+  :depends-on ("midi-fink"
                "rove")
   :components ((:module "tests"
 			:serial t
@@ -62,5 +62,5 @@ It is intended as the midifile support for CYCO4, but may be used as a stand-alo
 			 (:file "test-precedence")
 			 (:file "test-event")
 			 (:file "test-eventlist") )))
-  :description "Test system for machine-drum"
+  :description "Test system for midi-fink"
   :perform (test-op (op c) (symbol-call :rove :run c)))

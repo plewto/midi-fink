@@ -1,7 +1,7 @@
-;;;; machine-drum meta-tempo
+;;;; midi-fink meta-tempo
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod meta-tempo-p ((this t)) nil)
 
@@ -28,7 +28,7 @@
 	
 	(defmethod tempo ((this list) &optional (unit :q))
 	  (declare (ignore unit))
-	  (when (expect 'machine-drum::tempo this
+	  (when (expect 'midi-fink::tempo this
 			#'(lambda (q)
 			    (and (>= (length q) 6)
 				 (= (car q)  +meta+)

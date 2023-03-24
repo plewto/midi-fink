@@ -1,8 +1,8 @@
-;;;; machine-drum midifile
+;;;; midi-fink midifile
 ;;;; Standard MIDI File
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defclass midifile ()
   ((division :reader mf-division

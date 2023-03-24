@@ -1,7 +1,7 @@
-;;;; machine-drum precedence.lisp
+;;;; midi-fink precedence.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 
 (defvar +precedence-alist+ (list (cons +meta+ 0)

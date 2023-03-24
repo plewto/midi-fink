@@ -1,9 +1,9 @@
-;;;; machine-drum   read.lisp
+;;;; midi-fink   read.lisp
 ;;;;
 ;;;; Read midifile
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 
 (defun probe-midifile (pathname)

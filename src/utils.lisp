@@ -1,7 +1,7 @@
-;;;; machine-drum utils.lisp
+;;;; midi-fink utils.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmacro while (test &rest body)
   "Executes body until test is nil."

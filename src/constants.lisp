@@ -1,7 +1,7 @@
-;;;; machine-drum constants.lisp
+;;;; midi-fink constants.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defvar +tab-1+ "    ")
 

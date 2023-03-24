@@ -1,9 +1,9 @@
-;;;; machine-drum event.lisp
+;;;; midi-fink event.lisp
 ;;;;
 ;;;; An event combines a MIDI message with a time.
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defclass event ()
   ((time :accessor event-time

@@ -1,8 +1,8 @@
-;;;; machine-drum main.lisp
+;;;; midi-fink main.lisp
 ;;;;
 ;;;; Defines generic functions.
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defvar *default-midifile-division* 98)
 (defvar *default-bpm* 120.0)

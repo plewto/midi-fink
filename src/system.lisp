@@ -1,9 +1,9 @@
-;;;; machine-drum system.lisp
+;;;; midi-fink system.lisp
 ;;;;
 ;;;; MIDI system messages: system-exclusive  end-exclusive
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod system-exclusive ((length integer))
   "Creates new SYSTEM-EXCLUSIVE message indicated data length.

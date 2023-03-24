@@ -1,12 +1,12 @@
-;;;; machine-drum packages.lisp
+;;;; midi-fink packages.lisp
 ;;;;
 ;;;; A Lisp library for creating, reading and writing midifiles.
 
-(defpackage :machine-drum
-  (:nicknames :mdrum)
+(defpackage :midi-fink
+  (:nicknames :fink)
   (:use :cl))
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (export '(channel-message-p
 	  channel-pressure-p
@@ -46,4 +46,4 @@
 	  system-exclusive
 	  system-exclusive-p
 	  tempo
-	  trackp) :machine-drum) 
+	  trackp) :midi-fink) 

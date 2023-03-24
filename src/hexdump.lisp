@@ -1,7 +1,7 @@
-;;;; machine-drum hexdump.lisp
+;;;; midi-fink hexdump.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 
 (labels ((format-index (index offset)

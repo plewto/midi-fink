@@ -1,4 +1,4 @@
-;;;; machine-drum types.lisp
+;;;; midi-fink types.lisp
 ;;;;
 ;;;; Defines several primitive MIDI data types
 ;;;;
@@ -20,7 +20,7 @@
 ;;;; Also defines functions for conversion between integers and ASCII, and
 ;;;; for extraction MIDI file chunks from vectors.
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (labels ((int->bytes (value count)
 		     (loop for i from 0 below count

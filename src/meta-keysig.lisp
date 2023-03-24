@@ -1,7 +1,7 @@
-;;;; machine-drum meta-keysig.lisp
+;;;; midi-fink meta-keysig.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod meta-keysig-p ((this t)) nil)
 

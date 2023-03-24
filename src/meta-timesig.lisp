@@ -1,7 +1,7 @@
-;;;; machine-drum meta-timesig.lisp
+;;;; midi-fink meta-timesig.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod meta-timesig-p ((this t)) nil)
 

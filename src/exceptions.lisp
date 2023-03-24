@@ -1,9 +1,9 @@
-;;;; machine-drum exceptions.lisp
+;;;; midi-fink exceptions.lisp
 ;;;;
 ;;;; Error and warning notifications.
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defvar *enable-warnings*  t)
 

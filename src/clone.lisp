@@ -1,7 +1,7 @@
-;;;; machine-drum  clone.lisp
+;;;; midi-fink  clone.lisp
 ;;;;
 
-(in-package :machine-drum)
+(in-package :midi-fink)
 
 (defmethod midi-clone ((this t) &key &allow-other-keys) this)
 
