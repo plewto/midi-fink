@@ -143,6 +143,7 @@
 			    ((meta-end-of-track-p mtype)(eot->str this))
 			    ((meta-timesig-p mtype)(timesig->str this))
 			    ((meta-sequencer-p mtype)(sequencer->str this))
+			    ((meta-end-of-track-p mtype)(eot->string this))
 			    (t (midi-error "MACHINE-DRUM::->STRING dispatch function"
 					   (list (sformat "Encountered an unknwon meta type: ~A" mtype)
 						 (sformat "MIDI message was ~A" this)))))))
