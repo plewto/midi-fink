@@ -85,8 +85,8 @@ a midifile header id of 'MThd'."
 			     (let ((count 0)
 				   (acc '()))
 			       (loop for i from 0
-				     for chunk-alist in chunk-alist do
-				     (if (is-track-p chunk-alist)
+				     for chunk in chunk-alist do
+				     (if (is-track-p chunk)
 					 (progn
 					   (push t acc)
 					   (setf count (1+ count)))
@@ -96,7 +96,7 @@ a midifile header id of 'MThd'."
 					   (format t "*** MIDI WARNING: Encountered non-track chunk~%" )
 					   (format t "*** MIDI WARNING: in midifile~%")
 					   (format t "*** MIDI WARNING: Expected 'MTrk' got '~A'~%"
-						   (int->ascii-string (cdr (assoc :id chunk-alist))))))))
+						   (int->ascii-string (cdr (assoc :id chunk))))))))
 			       (cons (reverse acc) count))) )
 
 	(defmethod read-midifile ((pathname string))
