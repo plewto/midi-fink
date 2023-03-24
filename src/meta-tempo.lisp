@@ -13,20 +13,20 @@
        (meta-tempo-p (second this))))
 
 (labels ((unit-scale (n unit)
-		     (* n (cond  ((eq unit 'w) 0.25)
-				 ((eq unit 'h) 0.50)
-				 ((eq unit 'e) 2.00)
-				 ((eq unit 's) 4.00)
+		     (* n (cond  ((eq unit :w) 0.25)
+				 ((eq unit :h) 0.50)
+				 ((eq unit :e) 2.00)
+				 ((eq unit :s) 4.00)
 				 (t 1.0)))) )
 
-	(defun meta-tempo (bpm &optional (unit 'q))
+	(defun meta-tempo (bpm &optional (unit :q))
 	  (let* ((ubpm (unit-scale bpm unit))
 		 (qdur (/ 60.0 ubpm))
 		 (udur (truncate (* 1e6 qdur))))
 	    (append (list +meta+ +tempo+ 3)
 		    (->list (int->n24 udur)))))
 	
-	(defmethod tempo ((this list) &optional (unit 'q))
+	(defmethod tempo ((this list) &optional (unit :q))
 	  (declare (ignore unit))
 	  (when (expect 'machine-drum::tempo this
 			#'(lambda (q)

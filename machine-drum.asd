@@ -1,7 +1,7 @@
 (defsystem "machine-drum"
   :version "0.1.0"
   :author "Steven Jones"
-  :license ""
+  :license "GPL"
   :depends-on ()
   :components ((:module "src"
 			:serial t
@@ -33,8 +33,7 @@
 			 (:file "chunk")
 			 (:file "midifile")
 			 (:file "write")
-			 (:file "read")
-			 )))
+			 (:file "read"))))
   :description "Machine-drum is a Lisp library for creating, reading and writing midifiles.
 It is intended as the midifile support for CYCO4, but may be used as a stand-alone library."
   :in-order-to ((test-op (test-op "machine-drum/tests"))))
