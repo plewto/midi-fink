@@ -1,0 +1,9 @@
+midi-fink todo
+
+1) Add test for track and midifile objects.
+
+2) Check against other Lisp implementations.
+   So far has only been tested with SBCL.
+
+
+   
