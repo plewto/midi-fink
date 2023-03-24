@@ -1,7 +1,7 @@
-;;;; cyco-midi  test-midifile.lisp
+;;;; midi-fink  test-midifile.lisp
 ;;;;
 
-(in-package :cyco-midi/tests/main)
+(in-package :midi-fink/tests/main)
 
 (deftest test-track
   (testing "(Not) testing MIDIFILE - test not implemented and fails intentionally.")

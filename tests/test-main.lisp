@@ -1,9 +1,9 @@
-;; NOTE: To run this test file, execute `(asdf:test-system :cyco-midi)' in your Lisp.
+;; NOTE: To run this test file, execute `(asdf:test-system :midi-fink)' in your Lisp.
 
-(defpackage cyco-midi/tests/main
+(defpackage midi-fink/tests/main
   (:use :cl
-        :cyco-midi
+        :midi-fink
         :rove))
 
-(in-package :cyco-midi/tests/main)
+(in-package :midi-fink/tests/main)
 

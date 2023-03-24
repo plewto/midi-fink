@@ -1,6 +1,6 @@
-;;;; cyco-midi test-types
+;;;; midi-fink test-types
 
-(in-package :cyco-midi/tests/main)
+(in-package :midi-fink/tests/main)
 
 (defmacro while (test &rest body)
   "Executes body until test is nil."
@@ -10,55 +10,55 @@
 
 (deftest test-int->long
   (testing "Conversion of integer to 4-byte array 'long'")
-  (ok (and (equal '(0 0 0 0) (cyco-midi::int->long 0))
-	   (equal '(0 0 0 #xFF) (cyco-midi::int->long #x000000ff))
-	   (equal '(0 0 #xFF 0) (cyco-midi::int->long #x0000ff00))
-	   (equal '(0 #xFF 0 0) (cyco-midi::int->long #x00ff0000))
-	   (equal '(#xFF 0 0 0) (cyco-midi::int->long #xff000000))
-	   (equal '(#xFF #xFF #xFF #xFF) (cyco-midi::int->long #xffffffff)))))
+  (ok (and (equal '(0 0 0 0) (midi-fink::int->long 0))
+	   (equal '(0 0 0 #xFF) (midi-fink::int->long #x000000ff))
+	   (equal '(0 0 #xFF 0) (midi-fink::int->long #x0000ff00))
+	   (equal '(0 #xFF 0 0) (midi-fink::int->long #x00ff0000))
+	   (equal '(#xFF 0 0 0) (midi-fink::int->long #xff000000))
+	   (equal '(#xFF #xFF #xFF #xFF) (midi-fink::int->long #xffffffff)))))
 
 (deftest test-int->n24
   (testing "Conversion of integer to 3-byte array 'n24'")
-  (ok (and (equal '(0 0 0) (cyco-midi::int->n24 0))
-	   (equal '(0 0 #xFF) (cyco-midi::int->n24 #x0000ff))
-	   (equal '(0 #xFF 0) (cyco-midi::int->n24 #x00ff00))
-	   (equal '(#xFF 0 0) (cyco-midi::int->n24 #xff0000))
-	   (equal '(#xFF #xFF #xFF)(cyco-midi::int->n24 #xffffff)))))
+  (ok (and (equal '(0 0 0) (midi-fink::int->n24 0))
+	   (equal '(0 0 #xFF) (midi-fink::int->n24 #x0000ff))
+	   (equal '(0 #xFF 0) (midi-fink::int->n24 #x00ff00))
+	   (equal '(#xFF 0 0) (midi-fink::int->n24 #xff0000))
+	   (equal '(#xFF #xFF #xFF)(midi-fink::int->n24 #xffffff)))))
 
 (deftest test-int->short
   (testing "Conversion of integer to 2-byte array 'short'")
-  (ok (and (equal '(0 0) (cyco-midi::int->short 0))
-	   (equal '(0 #xFF) (cyco-midi::int->short #x00ff))
-	   (equal '(#xFF 0) (cyco-midi::int->short #xff00))
-	   (equal '(#xFF 0) (cyco-midi::int->short #xff00))
-	   (equal '(#xFF #xFF)(cyco-midi::int->short #xffff)))))
+  (ok (and (equal '(0 0) (midi-fink::int->short 0))
+	   (equal '(0 #xFF) (midi-fink::int->short #x00ff))
+	   (equal '(#xFF 0) (midi-fink::int->short #xff00))
+	   (equal '(#xFF 0) (midi-fink::int->short #xff00))
+	   (equal '(#xFF #xFF)(midi-fink::int->short #xffff)))))
 
 (deftest test-long->int
   (testing "Conversion of 4-byte vector to 'long'")
-  (ok (and (= #x00000000 (cyco-midi::long->int #(#x00 #x00 #x00 #x00)))
-	   (= #x000000ff (cyco-midi::long->int #(#x00 #x00 #x00 #xFF)))
-	   (= #x0000ff00 (cyco-midi::long->int #(#x00 #x00 #xff #x00)))
-	   (= #x00ff0000 (cyco-midi::long->int #(#x00 #xff #x00 #x00)))
-	   (= #xff000000 (cyco-midi::long->int #(#xff #x00 #x00 #x00)))
-	   (= #xffffffff (cyco-midi::long->int #(#xff #xff #xff #xff))))))
+  (ok (and (= #x00000000 (midi-fink::long->int #(#x00 #x00 #x00 #x00)))
+	   (= #x000000ff (midi-fink::long->int #(#x00 #x00 #x00 #xFF)))
+	   (= #x0000ff00 (midi-fink::long->int #(#x00 #x00 #xff #x00)))
+	   (= #x00ff0000 (midi-fink::long->int #(#x00 #xff #x00 #x00)))
+	   (= #xff000000 (midi-fink::long->int #(#xff #x00 #x00 #x00)))
+	   (= #xffffffff (midi-fink::long->int #(#xff #xff #xff #xff))))))
 
 (deftest test-n24->int
   (testing "Conversion of 3-byte vector to 'n24'")
-  (ok (and (= #x000000 (cyco-midi::n24->int #(#x00 #x00 #x00)))
-	   (= #x0000ff (cyco-midi::n24->int #(#x00 #x00 #xFF)))
-	   (= #x00ff00 (cyco-midi::n24->int #(#x00 #xff #x00)))
-	   (= #xff0000 (cyco-midi::n24->int #(#xff #x00 #x00)))
-	   (= #x000000 (cyco-midi::n24->int #(#x00 #x00 #x00)))
-	   (= #xffffff (cyco-midi::n24->int #(#xff #xff #xff))))))
+  (ok (and (= #x000000 (midi-fink::n24->int #(#x00 #x00 #x00)))
+	   (= #x0000ff (midi-fink::n24->int #(#x00 #x00 #xFF)))
+	   (= #x00ff00 (midi-fink::n24->int #(#x00 #xff #x00)))
+	   (= #xff0000 (midi-fink::n24->int #(#xff #x00 #x00)))
+	   (= #x000000 (midi-fink::n24->int #(#x00 #x00 #x00)))
+	   (= #xffffff (midi-fink::n24->int #(#xff #xff #xff))))))
 
 (deftest test-short->int
   (testing "Conversion of 3-byte vector to 'short'")
-  (ok (and (= #x0000 (cyco-midi::short->int #(#x00 #x00)))
-	   (= #x00ff (cyco-midi::short->int #(#x00 #xFF)))
-	   (= #xff00 (cyco-midi::short->int #(#xff #x00)))
-	   (= #x0000 (cyco-midi::short->int #(#x00 #x00)))
-	   (= #x0000 (cyco-midi::short->int #(#x00 #x00)))
-	   (= #xffff (cyco-midi::short->int #(#xff #xff))))))
+  (ok (and (= #x0000 (midi-fink::short->int #(#x00 #x00)))
+	   (= #x00ff (midi-fink::short->int #(#x00 #xFF)))
+	   (= #xff00 (midi-fink::short->int #(#xff #x00)))
+	   (= #x0000 (midi-fink::short->int #(#x00 #x00)))
+	   (= #x0000 (midi-fink::short->int #(#x00 #x00)))
+	   (= #xffff (midi-fink::short->int #(#xff #xff))))))
 
 (deftest test-vlv
   (testing "MIDI variable length value conversion.")
@@ -78,8 +78,8 @@
 	(loop for trial in trials do
 	      (let* ((n (first trial))
 		     (vlv (second trial))
-		     (n2 (cyco-midi::vlv->int vlv))
-		     (vlv2 (cyco-midi::int->vlv n)))
+		     (n2 (midi-fink::vlv->int vlv))
+		     (vlv2 (midi-fink::int->vlv n)))
 		(setf flag (and flag (= n n2)(equal vlv vlv2)))))
 	flag)))
 
@@ -87,8 +87,8 @@
   (testing "ASCII character conversion.")
   (ok (let ((flag t))
 	(loop for n from 32 below 127 do
-	      (let* ((c (cyco-midi::int->ascii n #\space))
-		     (n2 (cyco-midi::ascii->int c 32)))
+	      (let* ((c (midi-fink::int->ascii n #\space))
+		     (n2 (midi-fink::ascii->int c 32)))
 		(setf flag (and flag (= n n2)))))
 	flag)))
 
@@ -99,28 +99,28 @@
 		     
   (deftest test-take
     (testing "take-long")
-    (ok (and (multiple-value-bind (value index)(cyco-midi::take-long mock-data 0)
+    (ok (and (multiple-value-bind (value index)(midi-fink::take-long mock-data 0)
 				  (and (zerop value)(= index 4)))
-	     (multiple-value-bind (value index)(cyco-midi::take-long mock-data 4)
+	     (multiple-value-bind (value index)(midi-fink::take-long mock-data 4)
 				  (and (= value #x10101010)(= index 8)))
-	     (multiple-value-bind (value index)(cyco-midi::take-n24 mock-data 0)
+	     (multiple-value-bind (value index)(midi-fink::take-n24 mock-data 0)
 				  (and (zerop value)(= index 3)))
-	     (multiple-value-bind (value index)(cyco-midi::take-n24 mock-data 4)
+	     (multiple-value-bind (value index)(midi-fink::take-n24 mock-data 4)
 				  (and (= value #x101010)(= index 7)))
-	     (multiple-value-bind (value index)(cyco-midi::take-short mock-data 0)
+	     (multiple-value-bind (value index)(midi-fink::take-short mock-data 0)
 				  (and (zerop value)(= index 2)))
-	     (multiple-value-bind (value index)(cyco-midi::take-short mock-data 4)
+	     (multiple-value-bind (value index)(midi-fink::take-short mock-data 4)
 				  (and (= value #x1010)(= index 6)))
-	     (multiple-value-bind (value index)(cyco-midi::take-byte mock-data 0)
+	     (multiple-value-bind (value index)(midi-fink::take-byte mock-data 0)
 				  (and (zerop value)(= index 1)))
-	     (multiple-value-bind (value index)(cyco-midi::take-byte mock-data 4)
+	     (multiple-value-bind (value index)(midi-fink::take-byte mock-data 4)
 				  (and (= value #x10)(= index 5))))))
 
   (deftest test-take-vlv
     (testing "take-vlv")
-    (ok (and (multiple-value-bind (value index)(cyco-midi::take-vlv mock-data 0)
+    (ok (and (multiple-value-bind (value index)(midi-fink::take-vlv mock-data 0)
 				  (and (zerop value)(= index 1)))
-	     (multiple-value-bind (value index)(cyco-midi::take-vlv mock-data 8)
+	     (multiple-value-bind (value index)(midi-fink::take-vlv mock-data 8)
 				  (and (= value #x08000000)(= index 12)))))))
 
 (let ((mock-chunk  #(#x4D #x4F #x43 #x4B                  ;; ID
@@ -129,7 +129,7 @@
 
   (deftest test-take-chunk
     (testing "take-chunk")
-    (ok (multiple-value-bind (alist next)(cyco-midi::take-chunk mock-chunk 0)
+    (ok (multiple-value-bind (alist next)(midi-fink::take-chunk mock-chunk 0)
 			     (and (= (cdr (assoc :id alist)) #x4D4F434B)
 				  (= (cdr (assoc :byte-count alist)) 6)
 				  (equalp (cdr (assoc :data alist))
@@ -139,12 +139,12 @@
 
 (deftest test-message-type
   (testing "message-type")
-  (ok (and (eq :channel (cyco-midi::message-type cyco-midi::+note-on+ 0))
-	   (eq :end-sysex (cyco-midi::message-type cyco-midi::+end-exclusive+ 0))
-	   (eq :sysex  (cyco-midi::message-type cyco-midi::+system-exclusive+ 0))
-	   (eq :meta (cyco-midi::message-type cyco-midi::+meta+ 0))
-	   (eq :running-status (cyco-midi::message-type 0 cyco-midi::+note-on+))
-	   (eq :error (cyco-midi::message-type 0 0)))))
+  (ok (and (eq :channel (midi-fink::message-type midi-fink::+note-on+ 0))
+	   (eq :end-sysex (midi-fink::message-type midi-fink::+end-exclusive+ 0))
+	   (eq :sysex  (midi-fink::message-type midi-fink::+system-exclusive+ 0))
+	   (eq :meta (midi-fink::message-type midi-fink::+meta+ 0))
+	   (eq :running-status (midi-fink::message-type 0 midi-fink::+note-on+))
+	   (eq :error (midi-fink::message-type 0 0)))))
 
 
 (let ((mock-bytes #(0 1 2 3 #x90 5 6 7)))
@@ -152,31 +152,31 @@
   (deftest test-take-running-status-1
     (testing "take-running-status with single data byte")
     (ok (multiple-value-bind (msg next)
-			     (cyco-midi::take-running-status mock-bytes
-							     1 cyco-midi::+channel-pressure+)
+			     (midi-fink::take-running-status mock-bytes
+							     1 midi-fink::+channel-pressure+)
 			     (and (listp msg)
 				  (= (length msg) 2)
-				  (cyco-midi::channel-pressure-p msg)
+				  (midi-fink::channel-pressure-p msg)
 				  (= next 2)))))
 
   (deftest test-take-running-status-2
     (testing "take-running-status with two data bytes")
     (ok (multiple-value-bind (msg next)
-			     (cyco-midi::take-running-status mock-bytes
-							     1 cyco-midi::+note-on+)
+			     (midi-fink::take-running-status mock-bytes
+							     1 midi-fink::+note-on+)
 			     (and (listp msg)
 				  (= (length msg) 3)
-				  (cyco-midi::note-on-p msg)
+				  (midi-fink::note-on-p msg)
 				  (= next 3)))))
 
   (deftest test-take-channel-message-not-running-status
     (testing 'test-take-channel-message-not-running-status)
     (ok (multiple-value-bind (message next)
-			     (cyco-midi::take-channel-message-not-running-status
+			     (midi-fink::take-channel-message-not-running-status
 			      mock-bytes 4)
 			     (and (listp message)
 				  (= (length message) 3)
-				  (cyco-midi::note-on-p message)
+				  (midi-fink::note-on-p message)
 				  (= next 7)
 				  )))))
 
@@ -185,23 +185,23 @@
   (deftest test-take-system-message-1
     (testing "TEST-TAKE-SYSTEM-MESSAGE-1  single end-of-exclusive message")
     (ok (multiple-value-bind (message next)
-			     (cyco-midi::take-system-message mock-bytes 4)
+			     (midi-fink::take-system-message mock-bytes 4)
 			     (format t "DEBUG message -> ~A~%" message)
 			     (format t "DEBUG next    -> ~A~%" next)
 			     (and
 			      (listp message)
 			      (= (length message) 1)
-			      (cyco-midi::end-system-exclusive-p message)
+			      (midi-fink::end-system-exclusive-p message)
 			      (= next 5)))))
 
   
   (deftest test-take-system-message-2
     (testing "TEST-TAKE-SYSTEM-MESSAGE-2  entire system-exclusive message, including EOX")
     (ok (multiple-value-bind (message next)
-			     (cyco-midi::take-system-message mock-bytes 0)
+			     (midi-fink::take-system-message mock-bytes 0)
 			     (and (listp message)
 				  (= (length message) 5)
-				  (cyco-midi::system-exclusive-p message)
+				  (midi-fink::system-exclusive-p message)
 				  (= next 5))))) )
 
 (let ((mock-bytes #(#xFF #x01 #x04 #x74 #x65 #x73 #x74 #x00)))
@@ -209,12 +209,12 @@
   (deftest take-meta
     (testing 'test-take-meta)
     (ok (multiple-value-bind (message next)
-			     (cyco-midi::take-meta-message mock-bytes 0)
+			     (midi-fink::take-meta-message mock-bytes 0)
 			     (declare (ignore message next))
 			     (and
 			      (listp message)
 			      (= (length message) 7)
-			      (cyco-midi::meta-text-p message)
+			      (midi-fink::meta-text-p message)
 			      (= next 7))))))
 
 (let ((mock-bytes #(#x80 1 2                                    ;;  0 note-on no running status
@@ -230,10 +230,10 @@
 	      (expected-length '(3 3 5 7)))
 	  (while (and (not fail)(< index (length mock-bytes)))
 	    (multiple-value-bind (msg next)
-				 (cyco-midi::take-message mock-bytes index running-status)
+				 (midi-fink::take-message mock-bytes index running-status)
 				 (setf index next)
 				 (setf running-status
-				       (or (and (cyco-midi::channel-message-p msg)(car msg))
+				       (or (and (midi-fink::channel-message-p msg)(car msg))
 					   0))
 				 (setf fail (not (= (length msg)
 						    (nth counter expected-length))))

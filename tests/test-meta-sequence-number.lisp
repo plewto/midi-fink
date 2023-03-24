@@ -1,14 +1,14 @@
-;;;; cyco-midi  test-meta-sequence-number
+;;;; midi-fink  test-meta-sequence-number
 ;;;;
 
-(in-package :cyco-midi/tests/main)
+(in-package :midi-fink/tests/main)
 
 (deftest test-meta-text
   (testing "meta-sequence-number")
-  (ok (let ((msg (cyco-midi::meta-sequence-number 4)))
+  (ok (let ((msg (midi-fink::meta-sequence-number 4)))
 	(and (listp msg)
-	     (cyco-midi::metap msg)
-	     (cyco-midi::meta-sequence-number-p msg)
-	     (not (cyco-midi::meta-sequence-number-p '(foo)))))))
+	     (midi-fink::metap msg)
+	     (midi-fink::meta-sequence-number-p msg)
+	     (not (midi-fink::meta-sequence-number-p '(foo)))))))
 	     
 	     

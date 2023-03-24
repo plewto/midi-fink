@@ -1,12 +1,12 @@
-;;;; cyco-midi  test-meta-sequencer.lisp
+;;;; midi-fink  test-meta-sequencer.lisp
 ;;;;
 
-(in-package :cyco-midi/tests/main)
+(in-package :midi-fink/tests/main)
 
 (deftest test-meta-sequencer
   (testing "meta-sequencer")
-  (ok (let ((msg (cyco-midi::meta-sequencer '(1 2 3 4))))
+  (ok (let ((msg (midi-fink::meta-sequencer '(1 2 3 4))))
 	(and (listp msg)
-	     (cyco-midi::metap msg)
-	     (cyco-midi::meta-sequencer-p msg)
-	     (not (cyco-midi::meta-sequencer-p 'foo))))))
+	     (midi-fink::metap msg)
+	     (midi-fink::meta-sequencer-p msg)
+	     (not (midi-fink::meta-sequencer-p 'foo))))))

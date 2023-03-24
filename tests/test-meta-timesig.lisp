@@ -1,14 +1,14 @@
-;;;; cyco-midi  test-meta-timesig.lisp
+;;;; midi-fink  test-meta-timesig.lisp
 ;;;;
 
-(in-package :cyco-midi/tests/main)
+(in-package :midi-fink/tests/main)
 
 (deftest test-meta-timesig
   (testing "meta-timesig")
-  (ok (let ((msg (cyco-midi::meta-timesig 5 :unit :e)))
+  (ok (let ((msg (midi-fink::meta-timesig 5 :unit :e)))
 	(and (listp msg)
-	     (cyco-midi::metap msg)
-	     (cyco-midi::meta-timesig-p msg)
-	     (not (cyco-midi::meta-timesig-p 'foo))
-	     (= (cyco-midi::meta-timesig-beat msg) 5)
-	     (eq (cyco-midi::meta-timesig-unit msg) :e)))))
+	     (midi-fink::metap msg)
+	     (midi-fink::meta-timesig-p msg)
+	     (not (midi-fink::meta-timesig-p 'foo))
+	     (= (midi-fink::meta-timesig-beat msg) 5)
+	     (eq (midi-fink::meta-timesig-unit msg) :e)))))

@@ -1,12 +1,12 @@
-;;;; cyco-midi  test-meta
+;;;; midi-fink  test-meta
 ;;;;
 
-(in-package :cyco-midi/tests/main)
+(in-package :midi-fink/tests/main)
 
 (deftest test-meta-text
   (testing "meta text messages")
-  (ok (let ((eot (cyco-midi::meta-end-of-track)))
+  (ok (let ((eot (midi-fink::meta-end-of-track)))
 	(and (listp eot)
-	     (cyco-midi::metap eot)
-	     (not (cyco-midi::metap 'foo))
-	     (cyco-midi::meta-end-of-track-p eot)))))
+	     (midi-fink::metap eot)
+	     (not (midi-fink::metap 'foo))
+	     (midi-fink::meta-end-of-track-p eot)))))

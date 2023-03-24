@@ -1,13 +1,13 @@
-;;;; cyco-midi  test-meta-smpte.lisp
+;;;; midi-fink  test-meta-smpte.lisp
 ;;;;
 
-(in-package :cyco-midi/tests/main)
+(in-package :midi-fink/tests/main)
 
 (deftest test-meta-smpte
   (testing "meta-smpte")
-  (ok (let ((msg (cyco-midi::meta-smpte)))
+  (ok (let ((msg (midi-fink::meta-smpte)))
 	(and (listp msg)
-	     (cyco-midi::metap msg)
-	     (cyco-midi::meta-smpte-p msg)
-	     (not (cyco-midi::meta-smpte-p 'foo))))))
+	     (midi-fink::metap msg)
+	     (midi-fink::meta-smpte-p msg)
+	     (not (midi-fink::meta-smpte-p 'foo))))))
 
