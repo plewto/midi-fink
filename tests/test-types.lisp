@@ -186,8 +186,6 @@
     (testing "TEST-TAKE-SYSTEM-MESSAGE-1  single end-of-exclusive message")
     (ok (multiple-value-bind (message next)
 			     (midi-fink::take-system-message mock-bytes 4)
-			     (format t "DEBUG message -> ~A~%" message)
-			     (format t "DEBUG next    -> ~A~%" next)
 			     (and
 			      (listp message)
 			      (= (length message) 1)
