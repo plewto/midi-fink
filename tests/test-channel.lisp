@@ -102,3 +102,10 @@
 	   (eq 0 (midi-fink::data-count midi-fink::+end-exclusive+ 0))
 	   (eq :sysex (midi-fink::data-count midi-fink::+system-exclusive+ 0))
 	   (eq :meta (midi-fink::data-count midi-fink::+meta+ 0)))))
+
+(deftest test-midi=
+  (testing "MIDI= on message list.")
+  (ok (and (midi-fink::midi= (midi-fink::note-on 1 2 3)
+			     (midi-fink::note-on 1 2 3))
+	   (not (midi-fink::midi= (midi-fink::note-on 1 2 3)
+				  (midi-fink::note-on 2 3 4))))))

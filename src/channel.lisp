@@ -188,7 +188,7 @@ If velocity is 0 , the result is a NOTE-OFF instead."
 
 
 (defmethod midi= ((a t)(b t)) nil)
-(defmethod midi= ((a list)(b list)) (equal a b))
+
 
   
 

@@ -35,3 +35,12 @@
 	     (= (midi-fink::event-time ev2) t1)
 	     (not (eq msg1 msg2))
 	     (equal msg1 msg2)))))
+
+(deftest test-event-midi=
+  (testing "MIDI= on event")
+  (let ((ev1 (midi-fink::event 1.0 (midi-fink::note-on 1 2 3)))
+	(ev2 (midi-fink::event 1.0 (midi-fink::note-on 1 2 3)))
+	(ev3 (midi-fink::event 2.0 (midi-fink::note-on 1 2 3))))
+    (ok (and (midi-fink::midi= ev1 ev2)
+	     (not (midi-fink::midi= ev1 ev3))))))
+	

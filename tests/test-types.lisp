@@ -208,7 +208,6 @@
     (testing 'test-take-meta)
     (ok (multiple-value-bind (message next)
 			     (midi-fink::take-meta-message mock-bytes 0)
-			     (declare (ignore message next))
 			     (and
 			      (listp message)
 			      (= (length message) 7)

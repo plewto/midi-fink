@@ -61,6 +61,7 @@ It is intended as the midifile support for CYCO4, but may be used as a stand-alo
 			 (:file "test-meta-sequencer")
 			 (:file "test-precedence")
 			 (:file "test-event")
-			 (:file "test-eventlist") )))
+			 (:file "test-eventlist")
+			 (:file "test-midifile"))))
   :description "Test system for midi-fink"
   :perform (test-op (op c) (symbol-call :rove :run c)))

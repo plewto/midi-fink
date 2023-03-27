@@ -111,6 +111,5 @@ events - The events to be merged.
        (let ((result t))
 	 (loop for ta in (mf-tracks a)
 	       for tb in (mf-tracks b) do
-	       (setf result (midi= ta tb))
-	       while result)
+	       (setf result (and result (midi= ta tb))))
 	 result)))

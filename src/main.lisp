@@ -169,13 +169,14 @@ events are removed."))
 (defgeneric trackp (this)
   (:documentation "Predicate, true if argument is a an instance of TRACK. "))
 
-(defgeneric midi-sort (this)
-  (:documentation "Non-destructively sorts MIDI events by time and message precedence. 
-Returns a copy of the argument with the events sorted."))
 
 (defgeneric midi-sort! (this)
-  (:documentation "Destructively sort MIDI events by time and message precedence.
-Returns argument."))
+  (:documentation "Sorts MIDI events by time and message precedence.
+For list of events, argument object is unstable and should be discarded.
+For instances of EVENTLIST and TRACK, the argument is modified in place."))
+
+(defgeneric midi-sort (this)
+  (:documentation "Returns new copy of this with MIDI events sorted."))
 
 (defgeneric midifile-p (this)
   (:documentation "Predicate, true if argument is an instance of MIDIFILE."))

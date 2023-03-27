@@ -123,7 +123,30 @@ There are three scenarios:
 	(midi-sort (events this)))
   this)
 
+(defmethod midi-sort! ((this list))
+  (when (expect 'midi-sort this #'all-events-p "List of EVENTS")
+    (sort this #'midi<)))
+
+
+(labels ((as-message (a b)
+		     (equal a b))
+
+	 (as-list-of-events (a b)
+			    (and (= (length a)(length b))
+				 (let ((result t))
+				   (loop for av in a
+					 for bv in b do
+					 (setf result (and result (midi= av bv))))
+				   result))))
+
+(defmethod midi= ((a list)(b list))
+  (cond ((and (all-events-p a)(all-events-p b))
+	 (as-list-of-events a b))
+	(t (as-message a b)))))
+
 (defmethod midi= ((a eventlist)(b eventlist))
+  (midi-sort! a)
+  (midi-sort! b)
   (let ((a-events (->vector (events a)))
 	(b-events (->vector (events b))))
     (if (= (length a-events)
@@ -136,5 +159,5 @@ There are three scenarios:
 	    (setf index (1+ index)))
 	  result)
       nil)))
+    
 
-		   

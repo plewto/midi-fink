@@ -99,7 +99,7 @@ a midifile header id of 'MThd'."
 						   (int->ascii-string (cdr (assoc :id chunk))))))))
 			       (cons (reverse acc) count))) )
 
-	(defmethod read-midifile ((pathname string))
+	(defmethod read-midifile ((pathname pathname))
 	  "Reads midifile form given pathname."
 	  (format t ";;;; Reading MIDI file ~s~%" pathname)
 	  (when (validate-path pathname)
@@ -119,3 +119,5 @@ a midifile header id of 'MThd'."
 			(merge-events! mfile (parse-events bytes division) :track track-number)
 			(setf track-number (1+ track-number)))))
 	      mfile)))) 
+
+

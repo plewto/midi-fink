@@ -12,6 +12,8 @@
        (ev6 (midi-fink::event 2.0 (midi-fink::meta-text "Start time 2.0" :marker)))
        (ev7 (midi-fink::event 2.0 (midi-fink::control-change 4 5 6)))
        (events (list ev7 ev5 ev3 ev1 ev6 ev4 ev2))
+       (events-2 (midi-fink::midi-clone events))
+       (events-3 (list ev7 ev5 ev3 ev1 ev6 ev4))
        (eventlist (midi-fink::eventlist events)))
   
   (deftest test-eventlist
@@ -35,8 +37,6 @@
 	  (and
 	   (= (midi-fink::event-count eventlist)(1+ (length events)))
 	   (= (midi-fink::events-end-time eventlist) 4.0)))))
-
- 
 
   (deftest test-ensure-tempo-event
     (testing "ensure-tempo-event!  with no existing tempo event.")
@@ -71,4 +71,10 @@
 						  (midi-fink::event 0.0 (midi-fink::meta-tempo 123.0))))
 	       (init-count (midi-fink::event-count test-list)))
 	  (midi-fink::ensure-tempo-event! test-list)
-	  (= init-count (midi-fink::event-count test-list))))) )
+	  (= init-count (midi-fink::event-count test-list)))))
+
+  (deftest test-eventlist-midi=
+    (testing "MIDI= on eventlist")
+    (ok (let ((a (and (midi-fink::midi= events events-2)))
+	      (b (not (midi-fink::midi= events-2 events-3))))
+	  (and a b)))) )
