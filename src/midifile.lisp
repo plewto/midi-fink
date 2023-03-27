@@ -104,4 +104,13 @@ events - The events to be merged.
   "Returns collection of chunks for this MIDIFILE."
   (chunks (->vector (->midi this))))
 
-
+(defmethod midi= ((a midifile)(b midifile))
+  (and (= (mf-division a)(mf-division b))
+       (= (mf-format a)(mf-format b))
+       (= (track-count a)(track-count b))
+       (let ((result t))
+	 (loop for ta in (mf-tracks a)
+	       for tb in (mf-tracks b) do
+	       (setf result (midi= ta tb))
+	       while result)
+	 result)))

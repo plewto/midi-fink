@@ -108,6 +108,12 @@ Event a is 'less-then' b, if either:
 	(t (< (precedence (event-message a))
 	      (precedence (event-message b))))))
 
+(defmethod midi= ((a event)(b event))
+  (and (= (event-time a)
+	  (event-time b))
+       (midi= (event-message a)
+	      (event-message b))))
+
 (defmethod events-end-time ((this list))
   "Returns the maximum event-time from list of events."
   (let ((events (midi-sort this)))

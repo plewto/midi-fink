@@ -123,3 +123,18 @@ There are three scenarios:
 	(midi-sort (events this)))
   this)
 
+(defmethod midi= ((a eventlist)(b eventlist))
+  (let ((a-events (->vector (events a)))
+	(b-events (->vector (events b))))
+    (if (= (length a-events)
+	   (length b-events))
+	(let ((result t)
+	      (index 0))
+	  (while (and result (< index (length a-events)))
+	    (setf result (midi= (aref a-events index)
+				(aref b-events index)))
+	    (setf index (1+ index)))
+	  result)
+      nil)))
+
+		   

@@ -126,6 +126,9 @@ A) The event time of q is less then that of r.
 B) Events q and r have the same time and the precedence of q is less-then
   the precedence of r."))
 
+(defgeneric midi= (q r)
+  (:documentation "Returns t if arguments are equivalent MIDI entities."))
+
 (defgeneric find-events (this &key test &allow-other-keys)
   (:documentation "Returns all events from this for which test is true."))
 

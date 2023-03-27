@@ -166,8 +166,6 @@ If velocity is 0 , the result is a NOTE-OFF instead."
 (defmethod pitch-bend-p ((this list))
   (pitch-bend-p (car this)))
 
-
-;; ISSUE: CAN THIS BE ELIMINATED
 (labels ((dcount (status)
 		 (if (member (logand status #xF0)
 			     (list +channel-pressure+ +program-change+))
@@ -187,3 +185,10 @@ If velocity is 0 , the result is a NOTE-OFF instead."
 		    (list "Expected either a MIDI status byte or RUNNING-STATUS"
 			  (sformat "Got: this: x~2X   running-status: x~2X"
 				   this running-status)))))))
+
+
+(defmethod midi= ((a t)(b t)) nil)
+(defmethod midi= ((a list)(b list)) (equal a b))
+
+  
+
