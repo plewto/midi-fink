@@ -1,6 +1,6 @@
 (defsystem "midi-fink"
   :version "0.1.0"
-  :author "Steven Jones"
+  :author "Steven Jones  :  plewto@gmail.com"
   :license "GPL"
   :depends-on ()
   :components ((:module "src"
@@ -35,7 +35,7 @@
 			 (:file "write")
 			 (:file "read"))))
   :description "midi-fink is a Lisp library for creating, reading and writing midifiles.
-It is intended as the midifile support for CYCO4, but may be used as a stand-alone library."
+It may be used as a stand-alone library, but is intended as the MIDI backend for CYCO4."
   :in-order-to ((test-op (test-op "midi-fink/tests"))))
 
 (defsystem "midi-fink/tests"

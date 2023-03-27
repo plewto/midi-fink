@@ -112,4 +112,13 @@ Two global variables set default midifile parameters
 ## Installation
 
 For the moment load from source.
-Eventually midi-fink should be available as a quicklisp package. 
+Eventually midi-fink should be available as a quicklisp package.
+
+
+## Test
+So far midi-fink has been tested with the following Lisp:
+* SBCL    - All test pass.
+* ABCL    - All test pass.
+* Clisp   - All test pass.
+* Allegro - Source files load without complaint, but have been unable 
+            to install the rove package required for the test-suite. 
